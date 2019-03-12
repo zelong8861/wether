@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: demo-service
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/

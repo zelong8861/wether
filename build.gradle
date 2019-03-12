@@ -1,0 +1,76 @@
+ext {
+	springBootVersion = '2.0.7.RELEASE'
+	springCloudVersion = 'Finchley.SR2'
+	springVersion = '4.2.3.RELEASE'
+}
+buildscript {
+	ext {
+		springBootVersion = '2.0.7.RELEASE'
+	}
+	repositories {
+		jcenter()
+	}
+
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'demo'
+	version = '0.0.1'
+}
+sourceCompatibility = 1.8
+
+repositories {
+	jcenter()
+	flatDir {
+		dirs 'lib'
+	}
+}
+
+dependencies {
+	compile "org.springframework.boot:spring-boot-devtools:${springBootVersion}"
+	compile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+	compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-jersey', version: "${springBootVersion}"
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: "${springBootVersion}"
+	//compile "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}"
+	//compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+	compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+	compile "org.springframework.boot:spring-boot-starter-mail:${springBootVersion}"
+	//compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+
+
+	compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4:2.1.3.RELEASE'
+	compile 'org.webjars:jquery:3.1.0'
+	compile 'org.webjars:bootstrap:3.3.7'
+	compile 'org.webjars:webjars-locator:0.34'
+	compile 'org.webjars:webjars-locator-core:0.35'
+	compile 'javax.ws.rs:jsr311-api:1.1.1'
+
+	compile 'org.apache.commons:commons-lang3:3.4'
+	compile 'org.apache.commons:commons-collections4:4.1'
+	compile 'org.apache.poi:poi-ooxml:3.15-beta2'
+	compile 'org.apache.httpcomponents:httpclient:4.5.3'
+	compile 'org.apache.mina:mina-core:2.0.9'
+	compile 'commons-io:commons-io:2.4'
+	compile 'com.google.code.gson:gson:2.8.0'
+	compile 'joda-time:joda-time:2.9.9'
+	//compile 'net.sourceforge.nekohtml:nekohtml:1.922'
+	//compile name: 'ojdbc14-10.2.0.4.0'
+
+	// --------- spring cloud -------//
+	implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.0.2.RELEASE')
+	implementation('org.springframework.cloud:spring-cloud-starter-openfeign:2.0.2.RELEASE')
+	// --------------- swagger ui -----------------//
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
+	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+}
+ext['springCloudVersion'] = 'Finchley.SR2'
+
+
