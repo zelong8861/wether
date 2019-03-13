@@ -16,7 +16,7 @@ public class DebugController {
     public String test() {
         MailDistributorService mailDistributorService = MailDistributorService.getInstance();
         MailBean mailBean = new MailBean();
-        mailBean.setToEmailList("zelong.li@cicc.com.cn");
+        mailBean.setToEmailList("zelong861@163.com");
         mailBean.setSubject("test");
         mailBean.setContent("test");
 
